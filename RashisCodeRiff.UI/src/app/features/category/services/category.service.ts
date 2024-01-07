@@ -8,9 +8,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CategoryService {
 
-  constructor(private http: HttpClient) { }
+  private baseApiUrl = 'https://localhost:7068';
+
+  constructor(private httpClient: HttpClient) { }
 
   addCategory(model: AddCategoryRequest): Observable<void> {
-    return this.http.post<void>('http://localhost:7068/api/categories', model);
+    return this.httpClient.post<void>(this.baseApiUrl + '/api/categories', model);
   }
 }
