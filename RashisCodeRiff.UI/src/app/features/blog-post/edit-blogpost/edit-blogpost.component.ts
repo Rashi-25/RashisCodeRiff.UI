@@ -13,7 +13,6 @@ import { UpdateBlogPost } from '../models/update-blog-post.model';
   styleUrls: ['./edit-blogpost.component.css']
 })
 export class EditBlogpostComponent implements OnInit,OnDestroy {
-
   
   id: string | null = null;
 
@@ -102,5 +101,13 @@ export class EditBlogpostComponent implements OnInit,OnDestroy {
     }
   }
 
+  openImageSelector(): void {
+    this.isImageSelectorVisible = true;
+  }
 
+  closeImageSelector() : void {
+    this.isImageSelectorVisible = false;
+  }
+
+  
 }
