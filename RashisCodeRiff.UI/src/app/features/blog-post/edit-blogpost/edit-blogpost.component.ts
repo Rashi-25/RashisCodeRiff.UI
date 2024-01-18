@@ -6,6 +6,7 @@ import { BlogPost } from '../models/blog-post.model';
 import { Observable, Subscription } from 'rxjs';
 import { Category } from '../../category/models/category.models';
 import { UpdateBlogPost } from '../models/update-blog-post.model';
+import { ImageService } from 'src/app/shared/components/image-selector/image.service';
 
 @Component({
   selector: 'app-edit-blogpost',
@@ -31,7 +32,8 @@ export class EditBlogpostComponent implements OnInit,OnDestroy {
   constructor(private route: ActivatedRoute,
     private blogPostService: BlogPostService,
     private categoryService: CategoryService,
-    private router:Router) {
+    private router:Router,
+    private imageService: ImageService) {
 
   }
 
@@ -65,10 +67,12 @@ export class EditBlogpostComponent implements OnInit,OnDestroy {
     this.routeSubscription?.unsubscribe();
     this.updateBlogPostSubscription?.unsubscribe();
     this.getBlogPostSubscription?.unsubscribe();
+    this.deleteBlogPostSubscription?.unsubscribe();
+    this.imageSelectSubscricption?.unsubscribe();
   }
 
   ngOnInit(): void {
-     this.categories$ = this.categoryService.getAllCategories();
+    this.categories$ = this.categoryService.getAllCategories();
 
 
     this.routeSubscription = this.route.paramMap.subscribe({
@@ -85,8 +89,18 @@ export class EditBlogpostComponent implements OnInit,OnDestroy {
           });
           ;
         }
+
+        this.imageSelectSubscricption = this.imageService.onSelectImage()
+        .subscribe({
+          next: (response) => {
+            if (this.model) {
+              this.model.featuredImageUrl = response.url;
+              this.isImageSelectorVisible = false;
+            }
+          }
+        })
       }
-    })
+    });
   }
 
   onDelete(): void {
