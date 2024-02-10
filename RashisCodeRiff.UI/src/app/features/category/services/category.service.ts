@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Category } from '../models/category.models';
 import { environment } from 'src/environments/environment';
 import { UpdateCategoryRequest } from '../models/update-category-request.model';
+import { CookieService } from 'ngx-cookie-service';
 
 
 @Injectable({
@@ -14,7 +15,8 @@ export class CategoryService {
 
   //private baseApiUrl = 'https://localhost:7068';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+    private cookieService: CookieService) { }
 
   addCategory(model: AddCategoryRequest): Observable<void> {
     return this.httpClient.post<void>(`${environment.baseApiUrl}/api/categories`, model);
