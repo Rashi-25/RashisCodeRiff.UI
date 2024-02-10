@@ -13,3 +13,63 @@
     max-width: 100%;
     margin: 2em 0 2em 0;
   }
+  /* navbar.component.css */
+  body {
+    padding-top: 70px; /* Adjust this value based on the height of your navbar */
+  }
+  
+
+.navbar {
+    background-color: #0C0F0A!important; /* Transparent black color */
+    color: #e7315f; /* White text color */
+    position: fixed; /* Fixed positioning */
+    top: 0; /* Align at the top of the page */
+    width: 100%; /* Take full width of the page */
+    z-index: 1000; /* Ensure navbar stays on top of other content */
+  }
+  
+  .navbar-brand,
+  .navbar-nav .nav-link {
+    color: #e7315f; /* White text color for brand and links */
+  }
+  
+  .navbar-brand:hover,
+  .navbar-nav .nav-link:hover {
+    color: white; /* Change the text color on hover */
+  }
+
+  .navbar-nav .nav-link.active {
+    color: #e7315f; /* Set the active link color to match admin links */
+  }
+
+  .navbar-nav .nav-link.active:hover {
+    color:white; /* Set the active link color to match admin links */
+  }
+  
+  .navbar-toggler-icon {
+    background-color: white; /* White color for the toggler icon */
+  }
+  
+  .dropdown-menu {
+    background-color: #0C0F0A; /* Transparent black color for dropdown menu */
+  }
+  
+  .dropdown-item {
+    color: #e7315f; /* White text color for dropdown items */
+  }
+  
+  .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Change the background color of dropdown items on hover */
+    color: white;
+  }
+  
+  .btn-primary {
+    background-color: #007bff; /* Change the background color of primary buttons */
+    border-color: #007bff; /* Change the border color of primary buttons */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Change the background color of primary buttons on hover */
+    border-color: #0056b3; /* Change the border color of primary buttons on hover */
+  }
+  
