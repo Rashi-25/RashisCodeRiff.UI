@@ -19,7 +19,7 @@ export class CategoryService {
     private cookieService: CookieService) { }
 
   addCategory(model: AddCategoryRequest): Observable<void> {
-    return this.httpClient.post<void>(`${environment.baseApiUrl}/api/categories`, model);
+    return this.httpClient.post<void>(`${environment.baseApiUrl}/api/categories?addAuth=true`, model);
   }
 
   getAllCategories(): Observable<Category[]> {
